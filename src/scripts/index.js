@@ -5,6 +5,7 @@ const data = [
 	{view: 'Жетлый', brand: 'lg', actions: '15%', r_length: 140000},
 ];
 
+
 const filters = {};
 
 
@@ -149,9 +150,6 @@ boxFilters.addEventListener('click', applyFilters);
 
 
 
-
-
-
 // динамика появления элементов
 
 
@@ -174,60 +172,45 @@ function showFilterBody(event){
 }
 
 
+/*function requestServer(patchname, createFilter){
+
+	fetch(`http://localhost:3004/${patchname}`)
+	.then( response => response.json() )
+    .then( data => {
+
+    	data.forEach( item => {    		
+			createFilter( item.filterCategory, item.filterTitle, item.filterWords);
+		});
+
+    });	
+
+}*/
+
+
 
 // создание фильтров
 
-let jsonCheckboxFilter = [
-	{	
-		filterCategory: 'actions',
-		filterTitle: 'Акция',
-		filterWords: ['10%', '15%', '20%', '22%', '25%', '30%']		
-	},
-	{	
-		filterCategory: 'diameter',
-		filterTitle: 'Диаметр',
-		filterWords: ['100', '150', '200']
-	},
-	{	
-		filterCategory: 'volume',
-		filterTitle: 'Объём, л',
-		filterWords: ['10', '15', '20']
-	},
-	{
-		filterCategory: 'temperature',
-		filterTitle: 'Рабочая<br>температура, °С',
-		filterWords: ['44', '55', '66', '77']
-	},
-];
-
-let jsonRangeFilter = [
-	{category:'r_length', title: 'Длина', min: 5, max: 150000},
-	{category:'r_width', title: 'Ширина', min: 5, max: 10000},
-	{category:'r_height', title: 'Высота', min: 4, max: 9540},
-	{category:'r_depth', title: 'Глубина', min: 2, max: 3442}
-];
-
-
-
-
-
 
 buttonShowMore.addEventListener('click', function(){	
+	
 	if(this.textContent === 'Показать больше параметров (12)'){
 
 		buttonShowMore.style.margin = '21px 0 0 20px';
 
 		this.textContent = 'Показать меньше параметров (12)';
 
-		jsonCheckboxFilter.forEach( item => {
-			createCheckboxFilter( item.filterCategory, item.filterTitle, item.filterWords);
-		});
+		fetch('http://localhost:3004/filters')
+			.then( response => response.json() )
+		    .then( filters => {		    	
+		    	filters.checkboxFilters.forEach( item => {
+					createCheckboxFilter( item.filterCategory, item.filterTitle, item.filterWords);
+				});
+				filters.rangeFilter.forEach( item => {
+					createRangeFilter( item.category, item.title, item.min, item.max );
+				});
 
-		jsonRangeFilter.forEach( item => {
-			createRangeFilter( item.category, item.title, item.min, item.max );
-		});
-
-		startRange();
+		    })
+		    .then(() => startRange());	
 
 	}else if(this.textContent === 'Показать меньше параметров (12)'){
 
