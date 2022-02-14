@@ -172,27 +172,12 @@ function showFilterBody(event){
 }
 
 
-/*function requestServer(patchname, createFilter){
-
-	fetch(`http://localhost:3004/${patchname}`)
-	.then( response => response.json() )
-    .then( data => {
-
-    	data.forEach( item => {    		
-			createFilter( item.filterCategory, item.filterTitle, item.filterWords);
-		});
-
-    });	
-
-}*/
-
-
 
 // создание фильтров
 
 
 buttonShowMore.addEventListener('click', function(){	
-	
+
 	if(this.textContent === 'Показать больше параметров (12)'){
 
 		buttonShowMore.style.margin = '21px 0 0 20px';
