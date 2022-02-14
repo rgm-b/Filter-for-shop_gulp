@@ -1,5 +1,5 @@
 {
-	"people": [
+	"data": [
 		{"view": "Красный", "brand": "lg", "actions": "10%", "r_length": 10000},
 		{"view": "Зелёный", "brand": "lg", "actions": "10%", "r_length": 50000},
 		{"view": "Красный", "brand": "samsung", "actions": "10%", "r_length": 100000},
@@ -59,7 +59,3 @@
 		]
 	}
 }
-
-
-
-
