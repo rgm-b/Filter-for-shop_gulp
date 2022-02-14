@@ -1,0 +1,65 @@
+{
+	"people": [
+		{"view": "Красный", "brand": "lg", "actions": "10%", "r_length": 10000},
+		{"view": "Зелёный", "brand": "lg", "actions": "10%", "r_length": 50000},
+		{"view": "Красный", "brand": "samsung", "actions": "10%", "r_length": 100000},
+		{"view": "Жетлый", "brand": "lg", "actions": "15%", "r_length": 140000}
+	],
+
+	"filters": {
+
+		"checkboxFilters": [
+			{	
+				"filterCategory": "actions",
+				"filterTitle": "Акция",
+				"filterWords": ["10%", "15%", "20%", "22%", "25%", "30%"]		
+			},
+			{	
+				"filterCategory": "diameter",
+				"filterTitle": "Диаметр",
+				"filterWords": ["100", "150", "200"]
+			},
+			{	
+				"filterCategory": "volume",
+				"filterTitle": "Объём, л",
+				"filterWords": ["10", "15", "20"]
+			},
+			{
+				"filterCategory": "temperature",
+				"filterTitle": "Рабочая<br>температура, °С",
+				"filterWords": ["44", "55", "66", "77"]
+			}
+		],
+
+		"rangeFilter": [
+			{	
+				"category":"r_length", 
+				"title": "Длина", 
+				"min": 5, 
+				"max": 150000
+			},
+			{	
+				"category":"r_width", 
+				"title": "Ширина", 
+				"min": 5, 
+				"max": 10000
+			},
+			{	
+				"category":"r_height", 
+				"title": "Высота", 
+				"min": 4, 
+				"max": 9540
+			},
+			{	
+				"category":"r_depth", 
+				"title": "Глубина", 
+				"min": 2, 
+				"max": 3442
+			}
+		]
+	}
+}
+
+
+
+
