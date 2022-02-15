@@ -81,7 +81,9 @@ function applyFilters(event){
 			}
 		});
 		
-		event.target.parentElement.style.display = 'none';		
+		event.target.parentElement.style.display = '';		
+
+		event.target.parentElement.previousElementSibling.lastElementChild.style.display = '';
 
 		console.log('filteredData', filteredData);
 
