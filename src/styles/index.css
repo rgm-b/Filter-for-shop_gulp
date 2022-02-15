@@ -51,18 +51,34 @@ ul, input{
 .filter{	
 	position: relative;
 	margin-bottom: 37px;
+	width: 252px;
+}
+
+.filter__header{
+	display: flex;
+	justify-content: space-between;
+	padding-right: 82px;
 }
 
 .filter__title{
 	font-size: 12px;
-	color: #222;
-	width: 252px;
+	color: #222;	
 	cursor: pointer;
 }
 
 .filter__title_mark::after{
 	content:url(./../img/more.svg);			
 	margin-left: 6px;
+}
+
+.filter__button-close-body{
+	background-image: url(./../img/close.svg);
+	background-repeat: no-repeat;	
+	background-position: center center;
+	cursor: pointer;
+	width: 14px;
+	height: 14px;
+	display: none;
 }
 
 .filter__body{
@@ -203,7 +219,7 @@ ul, input{
 .filter-range__button{
 	position: absolute;
 	top: 0;
-		left: 56px;
+	left: 170px;
 	width: 23px;
 	height: 24px;			
 	background-image: url(./../img/filter-go.png);

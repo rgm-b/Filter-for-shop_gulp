@@ -157,17 +157,34 @@ boxFilters.addEventListener('click', showFilterBody);
 
 function showFilterBody(event){	
 
-	if(event.target.className !== 'filter__title filter__title_mark'){
-		return
-	}
-	
-	const filterBody = event.target.nextElementSibling;
+	if(event.target.className === 'filter__title filter__title_mark'){
 
-	if(filterBody && !filterBody.style.display){
+		const filterBody = event.target.parentElement.nextElementSibling;
+
+		const filterCloseBody = event.target.nextElementSibling;
+
 		filterBody.style.display = 'block';
-	}else if(filterBody){
+
+		filterCloseBody.style.display = 'block';
+		
+	}
+
+	if(event.target.className === 'filter__button-close-body'){
+		
+		const filterBody = event.target.parentElement.nextElementSibling;
+
 		filterBody.style.display = '';
-	}			
+
+		event.target.style.display = '';
+
+		/*if(filterBody && !filterBody.style.display){
+			filterBody.style.display = 'block';
+		}else if(filterBody){
+			filterBody.style.display = '';
+		}*/
+		
+	}
+		
 	
 }
 
@@ -226,8 +243,11 @@ function createCheckboxFilter(filterCategory, filterTitle, filterWords){
 
 	filters.append(filter);	
 
-	filter.innerHTML = `	
-		<div class="filter__title filter__title_mark">${filterTitle}</div>
+	filter.innerHTML = `
+		<div class="filter__header">
+			<div class="filter__title filter__title_mark">${filterTitle}</div>
+			<div class="filter__button-close-body"></div>
+		</div>	
 		<div class="filter__body">
 			<ul class="filter__list" data-category=${filterCategory}>
 			</ul>
