@@ -177,13 +177,7 @@ function showFilterBody(event){
 
 		filterBody.style.display = '';
 
-		event.target.style.display = '';
-
-		/*if(filterBody && !filterBody.style.display){
-			filterBody.style.display = 'block';
-		}else if(filterBody){
-			filterBody.style.display = '';
-		}*/
+		event.target.style.display = '';		
 		
 	}
 		
